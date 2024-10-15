@@ -16,9 +16,9 @@ theme: /Request
         go!: /Response/answer_greeting
 
 
-    state: ask_whoAreYou
+    state: ask_whoAreYouName
         q!: как тебя зовут / ты кто
-        go!: /Response/answer_howAreYou
+        go!: /Response/answer_whoAreYouName
 
 
          # TODO:   есть сущность от джастов, нужно использвоть её

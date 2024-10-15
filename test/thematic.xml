@@ -2,9 +2,56 @@
    
     <test-case id = "ask_priceTO">
         <q>сколько стоит техобслуживание</q>
-        <a state="/Services/IbRestore/RestoreLogin">💻 Чтобы восстановить логин, выйдите из интернет-банка и на [странице входа](https://link.alfabank.ru/dashboard) нажмите «Забыли логин или пароль?» — Напомнить логин. ☎️ Если это не поможет, позвоните нам: +7 495 755 58 58 — для Москвы и области, 8 800 100 77 33 — для регионов. Пожалуйста, подготовьте паспорт и кодовое слово.</a>
+        <a state="/Response/answer_priceTO"></a>
     </test-case>
     
+    <test-case id = "ask_scheduleTO">
+        <q>когда делать ТО</q>
+        <a state="/Response/answer_scheduleTO"></a>
+    </test-case>
     
+    <test-case id = "ask_claimTO">
+        <q>почините то что сломали</q>
+        <a state="/Response/answer_claimTO"></a>
+    </test-case>
+    
+    <test-case id = "ask_whatTO">
+        <q>зачем нужно ТО</q>
+        <a state="/Response/answer_whatTO"></a>
+    </test-case>
+    
+    <test-case id = "ask_technicalProblemTO">
+        <q>купил машину у вас недавно и она почему то стала гудеть на 3000</q>
+        <a state="/Response/answer_technicalProblemTO"></a>
+    </test-case>
+    
+     <test-case id = "ask_technicalProblemTOYes">
+        <q>купил машину у вас недавно и она почему то стала гудеть на 3000</q>
+        <a state="/Response/answer_technicalProblemTO"></a>
+        <q>да</q>
+        <a state="/Response/ask_signUpTo"></a>
+    </test-case>  
+    
+     <test-case id = "ask_technicalProblemTONo">
+        <q>купил машину у вас недавно и она почему то стала гудеть на 3000</q>
+        <a state="/Response/answer_technicalProblemTO"></a>
+        <q>нет</q>
+        <a state="/Response/answer_technicalProblemTONo"></a>
+    </test-case>  
+    
+    <test-case id = "ask_discountTO">
+        <q>на ТО есть скидки?</q>
+        <a state="/Response/answer_discountTO"></a>
+    </test-case>
+    
+    <test-case id = "ask_whatTimeTO">
+        <q>сколько по времени занимает ТО</q>
+        <a state="/Response/answer_TimeTO"></a>
+    </test-case>
+    
+    <test-case id = "ask_whatFillingTO">
+        <q>в плановое ТО что входит</q>
+        <a state="/Response/answer_whatFillingTO"></a>
+    </test-case>
     
 </test>

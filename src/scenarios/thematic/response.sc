@@ -8,7 +8,7 @@ theme: /Response
 
 
     state: answer_scheduleTO
-        a: График технического обслуживания можно узнать [тут](http://someautodealer/techservice).  
+        a: График технического обслуживания можно узнать [тут](http://someautodealer/techservice).
 
     state: answer_claimTO
         a: [Позвоните моим коллегам](http://someautodealer/contacts), чтобы разобраться в ситуации.
@@ -28,10 +28,10 @@ theme: /Response
         a: В среднем техническое обслуживание занимает 2 часа. Зависит от конкретного плана работ.
         
     state: answer_whatFillingTO
-        a: План работ технического обслуживания можно узнать [тут](http://someautodealer/techservice).       
+        a: План работ технического обслуживания можно узнать [тут](http://someautodealer/techservice).
         
     state: answer_technicalProblemTONo
-        a: Если передумаете, дайте нам знать.      
+        a: Если передумаете, дайте нам знать.
         
         
         

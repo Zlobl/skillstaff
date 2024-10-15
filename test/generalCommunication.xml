@@ -1,0 +1,38 @@
+<test>   
+   
+    <test-case id = "ask_greeting">
+        <q>привет</q>
+        <a state="/Response/answer_greeting">Здравствуйте!</a>
+    </test-case>
+    
+    <test-case id = "ask_whoAreYouName">
+        <q>как тебя зовут</q>
+        <a state="/Response/whoAreYouName">Меня зовут Вася.</a>
+        <a state="/Response/whoAreYouName">А вас?</a>
+        <q>Алексей</q>
+        <a state="/Response/answer_userName">Приятно познакомиться!</a>
+    </test-case>
+    
+    <test-case id = "ask_howAreYou">
+        <q>как дела</q>
+        <a state="/Response/answer_howAreYou">Отлично! А у вас?</a>
+    </test-case>
+    
+    <test-case id = "ask_howAreYou_good">
+        <q>хорошо</q>
+        <a state="/Response/answer_howAreYou_good">Это отлично! Как я могу помочь?</a>
+    </test-case>
+    
+    <test-case id = "ask_bad">
+        <q>плохо</q>
+        <a state="/Response/answer_howAreYou_bad">Ужас! Могу ли я чем-то помочь?</a>
+    </test-case>
+    
+    <test-case id = "ask_bye">
+        <q>пока</q>
+        <a state="/Response/answer_bye">Пока пока!</a>
+    </test-case>
+    
+
+    
+</test>

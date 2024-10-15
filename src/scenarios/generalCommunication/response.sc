@@ -19,9 +19,9 @@ theme: /Response
     state:  answer_howAreYou_bad
         a: Ужас! Могу ли я чем-то помочь?
 
-    state: answer_whoAreYou
+    state: answer_whoAreYouName
         a: Меня зовут Вася.
-        a: А как тебя звать?
+        a: А вас?
         go: /Request/ask_whoAreYou
 
     state: answer_userName
