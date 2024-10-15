@@ -1,0 +1,84 @@
+{
+    "tag": "root",
+    "pattern": "root",
+    "text": "Иванов пётр алексдрович",
+    "startPos": 0,
+    "endPos": 3,
+    "words": [
+        "иванов",
+        "петр",
+        "алексдрович"
+    ],
+    "signUpTo": [
+        {
+            "tag": "signUpTo",
+            "pattern": "signUpTo",
+            "text": "Иванов пётр алексдрович",
+            "startPos": 0,
+            "endPos": 3,
+            "words": [
+                "иванов",
+                "петр",
+                "алексдрович"
+            ],
+            "value": {
+                "fio": "Иванов пётр алексдрович",
+                "test2": 1
+            },
+            "pymorphy.surn": [
+                {
+                    "tag": "pymorphy.surn",
+                    "pattern": "pymorphy.surn",
+                    "text": "Иванов",
+                    "startPos": 0,
+                    "endPos": 1,
+                    "words": [
+                        "иванов"
+                    ],
+                    "value": "Иванов"
+                }
+            ],
+            "pymorphy.name": [
+                {
+                    "tag": "pymorphy.name",
+                    "pattern": "pymorphy.name",
+                    "text": "пётр",
+                    "startPos": 1,
+                    "endPos": 2,
+                    "words": [
+                        "петр"
+                    ],
+                    "value": "пётр"
+                }
+            ],
+            "pymorphy.patr": [
+                {
+                    "tag": "pymorphy.patr",
+                    "pattern": "pymorphy.patr",
+                    "text": "алексдрович",
+                    "startPos": 2,
+                    "endPos": 3,
+                    "words": [
+                        "алексдрович"
+                    ],
+                    "value": "алексдрович"
+                }
+            ]
+        }
+    ],
+    "value": {
+        "fio": "Иванов пётр алексдрович",
+        "test2": 1
+    },
+    "_pymorphy.name": "пётр",
+    "_Root": {
+        "fio": "Иванов пётр алексдрович",
+        "test2": 1
+    },
+    "_signUpTo": {
+        "fio": "Иванов пётр алексдрович",
+        "test2": 1
+    },
+    "_pymorphy.surn": "Иванов",
+    "_pymorphy.patr": "алексдрович"
+}

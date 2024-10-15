@@ -17,6 +17,7 @@ patterns:
     $name = ({* @mystem.persn * [@mystem.famn]} | ($oneWord $oneWord $oneWord))
     $rejection = { [* @неХочу *] [* @зачем *] [* @неЗнаю *] }
     $futureTime = {({*след* (* $day *|* $month *|* $week *|* $year *)})} || converter = convertToDays
+    $signUpTo = {[* @pymorphy.surn *] [* @pymorphy.name * ] [* @pymorphy.patr *]} || converter = test
 
 
     
