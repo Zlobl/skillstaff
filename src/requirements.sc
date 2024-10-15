@@ -14,6 +14,8 @@ require: where/where.sc
 require: number/number.sc
     module = sys.zb-common
 
+require: car/carBrand.sc
+    module = sys.zb-common
 
 require: dateTime/dateTime.js
     module = sys.zb-common
