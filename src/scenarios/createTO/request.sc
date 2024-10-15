@@ -1,6 +1,12 @@
 
 theme: /Request
 
+    # TODO: ДЛЯ ТЕСТОВ - УДАЛИТЬ
+    state: CARS
+        q!: $CarBrand
+        script:
+            $reactions.answer(JSON.stringify(parseTree));
+
 
     # хочу записаться на первое ТО
     # запиши меня на техобслуживание
