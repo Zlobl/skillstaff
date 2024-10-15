@@ -48,10 +48,6 @@ init:
 
     /* Переводим состояние в стейт, если срабатывает обрботчик onScriptError */
     bind("onScriptError", function($context) {
-        $reactions.transition("/OnError");
+        $reactions.answer('Ух бля, что-то сломалось');
+        $reactions.answer(JSON.stringify($context.exception.message));
     });
-
-
-
-
-

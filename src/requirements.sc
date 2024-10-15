@@ -24,7 +24,12 @@ require: dateTime/dateTime.sc
 require: functions/integration.js
 require: functions/functions.js
     
-require: scenarios/1.sc
-
+require: patterns.sc
+require: scenarios/createTO/request.sc
+require: scenarios/createTO/response.sc
+require: scenarios/generalCommunication/request.sc
+require: scenarios/generalCommunication/response.sc
+require: scenarios/thematic/request.sc
+require: scenarios/thematic/response.sc
 
 
