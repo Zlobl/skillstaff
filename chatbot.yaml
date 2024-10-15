@@ -1,0 +1,36 @@
+name: zb-cailapub
+
+entryPoint: main.sc
+
+botEngine: v2
+language: ru
+
+
+injector: 
+    
+  api: 
+
+    test: 
+      keyAPI:
+        name_1: 
+      host:
+        url_1: 
+    prod: 
+      keyAPI:
+        name_1: 
+      host:
+        url_1: 
+
+
+tests:
+  include:
+    - test.xml
+
+nlp:
+  intentNoMatchThresholds:
+    phrases: 0.44
+    patterns: 0.2
+
+  nbestPatterns: 5
+  nbestIntents: 5
+  nbestExamples: 5
