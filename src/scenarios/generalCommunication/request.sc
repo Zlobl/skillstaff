@@ -6,18 +6,15 @@ theme: /Request
         q!: $regex</start>
         a: Начнём.
 
-
-
-
-
+    
     # Общекоммуникативные мини-сценарии.
     state: ask_greeting
         q!: привет 
         go!: /Response/answer_greeting
 
-
+     # Общекоммуникативные мини-сценарии. как тебя зовут / ты кто
     state: ask_whoAreYouName
-        q!: как тебя зовут / ты кто
+        q!: как тебя зовут
         go!: /Response/answer_whoAreYouName
 
 
