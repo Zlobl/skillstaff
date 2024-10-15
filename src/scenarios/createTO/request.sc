@@ -47,8 +47,7 @@ theme: /Request
             a: Для записи на ТО уточните, пожалуйста, ваше имя, номер телефона и марку автомобиля.
                 
         state: SignToClarification
-            q: $carEan
-            q: $carRus
+            q: $CarBrand
             q: *
             script: 
                 var entities = $jsapi.context().entities
@@ -68,6 +67,7 @@ theme: /Request
                     });
                     if (_.isEmpty($.session.phone)) delete  $.session.phone;
                 }
+                //TODO: здесь надо подобрать паттерн по парстри так же как с именем
                 if (!$session.car){
                     var puttetn = $jsapi.context().nluResults.selected.debugInfo
                     if (puttetn && puttetn.pattern && puttetn.effectivePattern && (puttetn.pattern == "$carEan" || puttetn.pattern == "$carRus")){
