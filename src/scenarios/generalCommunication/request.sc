@@ -9,12 +9,12 @@ theme: /Request
     
     # Общекоммуникативные мини-сценарии.
     state: ask_greeting
-        q!: привет 
+        q!: $helloAll
         go!: /Response/answer_greeting
 
      # Общекоммуникативные мини-сценарии. как тебя зовут / ты кто
     state: ask_whoAreYouName
-        q!: как тебя зовут
+        q!: * {$how * $youAcc * $nameVPresPl3} *
         go!: /Response/answer_whoAreYouName
 
 
@@ -25,23 +25,23 @@ theme: /Request
 
     
     state:  ask_howAreYou
-        q!: как дела
+        q!: * {$how * (дела/настроение/ты там)} *
         go!: /Response/answer_howAreYou
 
 
         state: ask_howAreYou_good
-            q:  $regexp_i<.*(хорош|норм|отли|харош).*>
+            q: $comGood
             go!: /Response/answer_howAreYou_good
 
 
         state: ask_bad
-            q: $regexp_i<.*(плох|не оч|неоч|хрен).*>
+            q: $comBad
             go!: /Response/answer_howAreYou_bad
         
 
 
     state: ask_bye
-        q!: пока
+        q!: $comBye
         go!: /Response/answer_bye
 
 
