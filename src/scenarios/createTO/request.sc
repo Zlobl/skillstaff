@@ -5,7 +5,7 @@ theme: /Request
     state: CARS
         q!: $CarBrand
         script:
-            $reactions.answer(JSON.stringify(parseTree));
+            $reactions.answer(JSON.stringify($parseTree));
 
 
     # хочу записаться на первое ТО
@@ -16,7 +16,7 @@ theme: /Request
     state: ask_signUpTo
         q!:  хочу записаться на первое ТО, меня завут Антипов Максим
         script: 
-            $reactions.answer(JSON.stringify(parseTree));
+            $reactions.answer(JSON.stringify($parseTree));
 
             /*
 

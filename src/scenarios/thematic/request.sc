@@ -27,6 +27,7 @@ theme: /Request
         q!: * {($car/она) * ($buzz/$brokePast)} *
         go!: /Response/answer_technicalProblemTO
         
+        #TODO - не понятно зачем здесь да и нет. Кажется их нужно удалить. 
         state: ask_technicalProblemTOYes
             # да
             q!: $yes
@@ -44,8 +45,8 @@ theme: /Request
         
     state: ask_whatTimeTO
         # сколько по времени занимает TO
-        q!: * {$howMuch * $goPresContSg3 * $TO} *
-        go!: /Response/answer_TimeTO    
+        q!: * {($howMuch/как ($quickly/$longAdv)) * $goPresContSg3 * $TO} *
+        go!: /Response/answer_whatTimeTO    
         
     state: ask_whatFillingTO
         # в плановое TO что входит
