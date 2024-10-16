@@ -1,11 +1,13 @@
 
 theme: /Request
 
+    # TODO: должен быть предусмотрен минимальный препроцессинг запросов пользователя (отсеивание слишком длинных запросов, очистка запроса от мусорных символов, которые теоретически могут помешать работе матчера)
+
     # TODO: ДЛЯ ТЕСТОВ - УДАЛИТЬ
-    state: CARS
-        q!: $CarBrand
-        script:
-            $reactions.answer(JSON.stringify($parseTree));
+    # state: CARS
+    #     q!: $CarBrand
+    #     script:
+    #         $reactions.answer(JSON.stringify($parseTree));
 
 
     # хочу записаться на первое ТО
@@ -15,6 +17,7 @@ theme: /Request
     # техоб надо пройти подошло время ТО 12
     state: ask_signUpTo
         q!: $signUpTo
+        # q!: $inTo
         # q!:  * хочу записаться на первое ТО, меня завут Антипов Максим * 
         script: 
             $reactions.answer(JSON.stringify($parseTree));
@@ -98,39 +101,39 @@ theme: /Request
     #             go!: /SignUpTo
     #         else:
     #             go!: /SignToClarification2
-        state: SignToClarification
-            q: $CarBrand
-            q: *
-            script: 
-                var entities = $jsapi.context().entities
-                if (!$session.name){
-                    $.session.name = _.filter(entities, function(en) {
-                                        return en.pattern == "pymorphy.name";
-                                            }).map(function(en) {
-                                                return en.value;
-                    });
-                    if (_.isEmpty($.session.name)) delete  $.session.name;
-                }
-                if (!$session.phone){
-                    $.session.phone = _.filter(entities, function(en) {
-                    return en.pattern == "duckling.phone-number";
-                    }).map(function(en) {
-                    return en.value;
-                    });
-                    if (_.isEmpty($.session.phone)) delete  $.session.phone;
-                }
-                //TODO: здесь надо подобрать паттерн по парстри так же как с именем
-                if (!$session.car){
-                    var puttetn = $jsapi.context().nluResults.selected.debugInfo
-                    if (puttetn && puttetn.pattern && puttetn.effectivePattern && (puttetn.pattern == "$carEan" || puttetn.pattern == "$carRus")){
-                        $.session.car = puttetn.effectivePattern
-                        $reactions.answer(JSON.stringify($session.car))
-                    }
-                }
-            if: ($session.phone && $session.name) || ($session.phone && $session.car)
-                go!: /SignUpTo
-            else:
-                go!: /SignToClarification2
+        # state: SignToClarification
+        #     q: $CarBrand
+        #     q: *
+        #     script: 
+        #         var entities = $jsapi.context().entities
+        #         if (!$session.name){
+        #             $.session.name = _.filter(entities, function(en) {
+        #                                 return en.pattern == "pymorphy.name";
+        #                                     }).map(function(en) {
+        #                                         return en.value;
+        #             });
+        #             if (_.isEmpty($.session.name)) delete  $.session.name;
+        #         }
+        #         if (!$session.phone){
+        #             $.session.phone = _.filter(entities, function(en) {
+        #             return en.pattern == "duckling.phone-number";
+        #             }).map(function(en) {
+        #             return en.value;
+        #             });
+        #             if (_.isEmpty($.session.phone)) delete  $.session.phone;
+        #         }
+        #         //TODO: здесь надо подобрать паттерн по парстри так же как с именем
+        #         if (!$session.car){
+        #             var puttetn = $jsapi.context().nluResults.selected.debugInfo
+        #             if (puttetn && puttetn.pattern && puttetn.effectivePattern && (puttetn.pattern == "$carEan" || puttetn.pattern == "$carRus")){
+        #                 $.session.car = puttetn.effectivePattern
+        #                 $reactions.answer(JSON.stringify($session.car))
+        #             }
+        #         }
+        #     if: ($session.phone && $session.name) || ($session.phone && $session.car)
+        #         go!: /SignUpTo
+        #     else:
+        #         go!: /SignToClarification2
         
         
     # state: SignToClarification2

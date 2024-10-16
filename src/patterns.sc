@@ -46,7 +46,7 @@ patterns:
     #S
     $super = (супер/суперски/супир/супирски/super)
     #T
-    $TO = (то/техосмотр*/тех осмотр*/техническ* осмотр*/~техобслуживание)
+    $TO = (то/техосмотр*/обслуж*/тех осмотр*/техническ* осмотр*/~техобслуживание)
     #U
     #V
     #W
@@ -76,6 +76,10 @@ patterns:
     $name = ({* @mystem.persn * [@mystem.famn]} | ($oneWord $oneWord $oneWord))
     $rejection = { [* @неХочу *] [* @зачем *] [* @неЗнаю *] }
     $futureTime = {({*след* (* $day *|* $month *|* $week *|* $year *)})} || converter = convertToDays
+
+    $inTo = {[* *прой* *] [* *запис* *] [$TO]}
+    $fio =  {[@pymorphy.surn] [@pymorphy.name] [@pymorphy.patr]} 
+    $signUpTo = {[$inTo] [$fio] [$CarBrand]} || converter = test 
     
 
 
