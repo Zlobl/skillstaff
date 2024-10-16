@@ -22,7 +22,7 @@ theme: /Response
     state: answer_whoAreYouName
         a: Меня зовут Вася.
         a: А вас?
-        go: /Request/ask_whoAreYou
+        go: /Request/ask_whoAreYouName
 
     state: answer_userName
         a: Приятно познакомиться!

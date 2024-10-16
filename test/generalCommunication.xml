@@ -11,7 +11,7 @@
         <a state="/Response/answer_whoAreYouName">А вас?</a>
         <!--TODO не распознаем имена-->
         <q>Алексей</q>
-        <a state="/Response/answer_userName">Приятно познакомиться!</a>
+        <a state="/Response/answer_howAreYou">Приятно познакомиться!</a>
     </test-case>
     
     <test-case id = "ask_howAreYou_good">
