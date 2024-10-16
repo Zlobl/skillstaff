@@ -88,9 +88,7 @@ patterns:
 
 
     $signUp = ( 
-        {$inTo * [$fio] * [$CarBrand]} |
-        {[$inTo] * $fio * [$CarBrand]} |
-        {[$inTo] * [$fio] * $CarBrand} 
+        {$inTo * [$fio] * [$CarBrand]}
         ) || converter = test
 
        
