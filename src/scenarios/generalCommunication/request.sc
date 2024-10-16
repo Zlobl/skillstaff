@@ -44,7 +44,9 @@ theme: /Request
         q!: $comBye
         go!: /Response/answer_bye
 
-
+    state: ask_thanks
+        q!: $thanks
+        go!: /Response/answer_thanks
 
     state: NoMatch
         event!: noMatch

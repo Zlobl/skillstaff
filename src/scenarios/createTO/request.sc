@@ -17,29 +17,21 @@ theme: /Request
         q!: * $signUp *
         # q!:  * хочу записаться на первое ТО, меня завут Антипов Максим * 
         script: 
-
             // проверка номера телефона
+            # $client.listTo = $client.listTo || {}
             var phone =  extractDigits($parseTree.text);
-            if (phone)  $temp.phone =  validatePhoneNumber(phone) ?  phone: null;
-
+            if (phone)  $client.listTo.phone =  validatePhoneNumber(phone) ?  phone: null;
             // Проверка ФИО 
-            //TODO: если есть в других сценариях, то ФИО подтягивает из $client.fio
-            if ($parseTree["_signUp"] && $parseTree["_signUp"]["fio"])  $temp.fio =  $parseTree["_signUp"]["fio"];
-
+            //TODO: если есть в других сценариях, то ФИО подтягивает из $client.listTo.fio
+            if ($parseTree["_signUp"] && $parseTree["_signUp"]["fio"])  $client.listTo.fio =  $parseTree["_signUp"]["fio"];
             // Проверка Авто
-            if ($parseTree["_signUp"] && $parseTree["_signUp"]["auto"])  $temp.auto =  $parseTree["_signUp"]["auto"];
+            if ($parseTree["_signUp"] && $parseTree["_signUp"]["auto"])  $client.listTo.auto =  $parseTree["_signUp"]["auto"];
+            // Обязательно отлавливаем телефон, т.к. без него сотрудник не свяжется
+            if (($client.listTo.fio && $client.listTo.phone) || ($client.listTo.auto && $client.listTo.phone)) $reactions.transition({value: "/Response/answer_signUpTo", deferred: false});
+            else   $reactions.transition({value: "/Response/answer_signToClarification", deferred: false});
 
 
 
-
-
-
-        a: Да, сработало это говно {{$temp.fio}} {{$temp.auto }} {{$temp.phone}} 
-   
-   
-   
-   
-   
    
    
    
@@ -165,10 +157,13 @@ theme: /Request
     #     #     go!: /SignUpTo/SignToClarification
             
             
-    # state: DeleteSession
-    #     q!: deletesession
-    #     script:
-    #         $jsapi.stopSession();
+    state: DeleteSession
+        q!: deletesession
+        script:
+            $jsapi.stopSession();
+            delete $client.listTo.phone
+            delete $client.listTo.fio
+            delete $client.listTo.auto
 
         
     # state: Match

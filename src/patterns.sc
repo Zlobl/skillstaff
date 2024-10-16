@@ -80,16 +80,20 @@ patterns:
     $rejection = { [* @неХочу *] [* @зачем *] [* @неЗнаю *] }
     $futureTime = {({*след* (* $day *|* $month *|* $week *|* $year *)})} || converter = convertToDays
     
-
+    $thanks = (спасибо|{большое спасибо}|{Спасибо еще раз}|{Спасибо (вам|тебе)}|{Спасибо (всё получилось|принято|ясно|понятно|понял*|вопрос решен)}|спс|благодарю|благодарствую|благодарим)
     $inTo = {(пройт*/запис*) [на] $TO}
     $fio =  {[@pymorphy.surn] [@pymorphy.name] [@pymorphy.patr]} 
+    
 
 
 
+    # $signUp = ( 
+    #     {$inTo * [$fio] * [$CarBrand]}
+    #     ) || converter = getAutoEndName
 
     $signUp = ( 
-        {$inTo * [$fio] * [$CarBrand]}
-        ) || converter = test
-
-
-       
+         {$inTo * [$fio] * [$CarBrand]} |
+         {[$inTo] * $fio * [$CarBrand]} |
+         {[$inTo] * [$fio] * $CarBrand} 
+         ) || converter = getAutoEndName
+               

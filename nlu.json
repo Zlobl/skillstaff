@@ -1,179 +1,141 @@
 {
-  "project": {
-    "id": "antipov_radmir-1000122054-bYt",
-    "name": "antipov_radmir-1000122054-bYt",
-    "folder": "/platform"
+  "project" : {
+    "id" : "scillstaff-1000158648-vYC",
+    "name" : "scillstaff-1000158648-vYC",
+    "folder" : "/platform"
   },
-  "settings": {
-    "language": "ru",
-    "spellingCorrection": false,
-    "classificationAlgorithm": "sts",
-    "timezone": "Europe/Moscow",
-    "extendedSettings": {
-      "tokenizerEngine": "mystem",
-      "useShared": false
+  "settings" : {
+    "language" : "ru",
+    "spellingCorrection" : false,
+    "classificationAlgorithm" : "sts",
+    "timezone" : "Europe/Moscow",
+    "extendedSettings" : {
+      "tokenizerEngine" : "mystem",
+      "useShared" : false
     },
-    "shared": false,
-    "validation": {
-      "phraseValidationEnabled": false,
-      "answerValidationEnabled": false,
-      "phraseValidationThreshold": 0.5,
-      "answerValidationThreshold": 0.8
+    "shared" : false,
+    "validation" : {
+      "phraseValidationEnabled" : false,
+      "answerValidationEnabled" : false,
+      "phraseValidationThreshold" : 0.5,
+      "answerValidationThreshold" : 0.8
     }
   },
-  "intents": [
-    {
-      "path": "/Новый интент",
-      "enabled": true,
-      "shared": false,
-      "classificationRules": {
-        "refs": []
-      },
-      "priority": 0
-    }
-  ],
-  "entities": [],
-  "enabledSystemEntities": [
-    "pymorphy.name",
-    "pymorphy.surn",
-    "pymorphy.patr",
-    "duckling.number"
-  ],
-  "spellerDictionary": [],
-  "systemEntities": [
-    {
-      "name": "mystem.geo",
-      "enabled": false
+  "intents" : [ {
+    "path" : "/Новый интент",
+    "enabled" : true,
+    "shared" : false,
+    "classificationRules" : {
+      "refs" : [ ]
     },
-    {
-      "name": "mystem.persn",
-      "enabled": false
-    },
-    {
-      "name": "mystem.obsc",
-      "enabled": false
-    },
-    {
-      "name": "mystem.patrn",
-      "enabled": false
-    },
-    {
-      "name": "mystem.famn",
-      "enabled": false
-    },
-    {
-      "name": "pymorphy.romn",
-      "enabled": false
-    },
-    {
-      "name": "pymorphy.latn",
-      "enabled": false
-    },
-    {
-      "name": "pymorphy.numb",
-      "enabled": false
-    },
-    {
-      "name": "pymorphy.intg",
-      "enabled": false
-    },
-    {
-      "name": "pymorphy.abbr",
-      "enabled": false
-    },
-    {
-      "name": "pymorphy.name",
-      "enabled": true
-    },
-    {
-      "name": "pymorphy.surn",
-      "enabled": true
-    },
-    {
-      "name": "pymorphy.patr",
-      "enabled": true
-    },
-    {
-      "name": "pymorphy.geox",
-      "enabled": false
-    },
-    {
-      "name": "pymorphy.orgn",
-      "enabled": false
-    },
-    {
-      "name": "duckling.number",
-      "version": "v2",
-      "enabled": true
-    },
-    {
-      "name": "duckling.ordinal",
-      "version": "v2",
-      "enabled": false
-    },
-    {
-      "name": "duckling.amount-of-money",
-      "version": "v2",
-      "enabled": false
-    },
-    {
-      "name": "duckling.distance",
-      "version": "v2",
-      "enabled": false
-    },
-    {
-      "name": "duckling.time",
-      "version": "v2",
-      "enabled": false
-    },
-    {
-      "name": "duckling.date",
-      "version": "v2",
-      "enabled": false
-    },
-    {
-      "name": "duckling.time-of-day",
-      "version": "v2",
-      "enabled": false
-    },
-    {
-      "name": "duckling.duration",
-      "version": "v2",
-      "enabled": false
-    },
-    {
-      "name": "duckling.phone-number",
-      "version": "v2",
-      "enabled": false
-    },
-    {
-      "name": "duckling.email",
-      "version": "v2",
-      "enabled": false
-    },
-    {
-      "name": "duckling.url",
-      "version": "v2",
-      "enabled": false
-    },
-    {
-      "name": "duckling.interval",
-      "version": "v2",
-      "enabled": false
-    },
-    {
-      "name": "mlps-obscene.obscene",
-      "enabled": false
-    },
-    {
-      "name": "zb.datetime",
-      "enabled": false
-    },
-    {
-      "name": "zb.number",
-      "enabled": false
-    }
-  ],
-  "faq": [],
-  "skills": []
+    "priority" : 0
+  } ],
+  "entities" : [ ],
+  "enabledSystemEntities" : [ "pymorphy.name", "pymorphy.surn", "pymorphy.patr", "duckling.number" ],
+  "spellerDictionary" : [ ],
+  "systemEntities" : [ {
+    "name" : "mystem.geo",
+    "enabled" : false
+  }, {
+    "name" : "mystem.persn",
+    "enabled" : false
+  }, {
+    "name" : "mystem.obsc",
+    "enabled" : false
+  }, {
+    "name" : "mystem.patrn",
+    "enabled" : false
+  }, {
+    "name" : "mystem.famn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.romn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.latn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.numb",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.intg",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.abbr",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.name",
+    "enabled" : true
+  }, {
+    "name" : "pymorphy.surn",
+    "enabled" : true
+  }, {
+    "name" : "pymorphy.patr",
+    "enabled" : true
+  }, {
+    "name" : "pymorphy.geox",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.orgn",
+    "enabled" : false
+  }, {
+    "name" : "duckling.number",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.ordinal",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.amount-of-money",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.distance",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.time",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.date",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.time-of-day",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.duration",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.phone-number",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.email",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.url",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.interval",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "mlps-obscene.obscene",
+    "enabled" : false
+  }, {
+    "name" : "zb.datetime",
+    "enabled" : false
+  }, {
+    "name" : "zb.number",
+    "enabled" : false
+  } ],
+  "faq" : [ ],
+  "skills" : [ ]
 }

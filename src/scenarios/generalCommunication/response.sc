@@ -27,8 +27,10 @@ theme: /Response
     state: answer_userName
         a: Приятно познакомиться!
         script: 
-            // TODO: записать данные в Clain
-
+            if ($parseTree["_signUp"] && $parseTree["_signUp"]["fio"])  $client.fio =  $parseTree["_signUp"]["fio"];
 
     state: answer_bye
         a: Пока пока!
+        
+    state: answer_thanks
+        a: Рад был помочь.

@@ -33,6 +33,10 @@
         <a state="/Response/answer_bye">Пока пока!</a>
     </test-case>
     
+    <test-case id = "ask_thanks">
+        <q>спасибо</q>
+        <a state="/Response/answer_thanks">Пока пока!</a>
+    </test-case>
 
     
 </test>
