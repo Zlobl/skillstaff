@@ -81,7 +81,7 @@ patterns:
     $futureTime = {({*след* (* $day *|* $month *|* $week *|* $year *)})} || converter = convertToDays
     
 
-    $inTo = {(пройт*/запис*) * $TO}
+    $inTo = {(пройт*/запис*) [на] $TO}
     $fio =  {[@pymorphy.surn] [@pymorphy.name] [@pymorphy.patr]} 
 
 
