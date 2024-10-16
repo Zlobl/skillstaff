@@ -96,14 +96,14 @@ patterns:
 
 
     $signUp = ( 
-        {$inTo $fio $CarBrand} $customNumber |
-        $customNumber {$inTo $fio $CarBrand} |
-        $inTo {$fio $CarBrand $customNumber} |
-        {$fio $CarBrand $customNumber} $inTo |
-        $fio {$inTo $CarBrand $customNumber} |
-        {$inTo $CarBrand $customNumber} $fio |
-        $CarBrand {$inTo $fio $customNumber} |
-        {$inTo $fio $customNumber} $CarBrand 
+        {[$inTo] [$fio] [$CarBrand]} $customNumber |
+        $customNumber {[$inTo] [$fio] [$CarBrand]} |
+        $inTo {[$fio] [$CarBrand] [$customNumber]} |
+        {[$fio] [$CarBrand] [$customNumber]} $inTo |
+        $fio {[$inTo] [$CarBrand] [$customNumber]} |
+        {[$inTo] [$CarBrand] [$customNumber]} $fio |
+        $CarBrand {[$inTo] [$fio] [$customNumber]} |
+        {[$inTo] [$fio] [$customNumber]} $CarBrand 
         ) || converter = test
 
        

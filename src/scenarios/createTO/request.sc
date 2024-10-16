@@ -1,10 +1,10 @@
 
 theme: /Request
 
-    state: test123
-        q!: @duckling.number
-        script: 
-            $reactions.answer(JSON.stringify($parseTree));
+    # state: test123
+    #     q!: @duckling.number
+    #     script: 
+    #         $reactions.answer(JSON.stringify($parseTree));
 
 
 
@@ -24,7 +24,7 @@ theme: /Request
     # техоб надо пройти подошло время ТО 12
     state: ask_signUpTo
         # q!: * ($signUpTo/$signUpfio/$signUpCar) *
-        q!: $signUp 
+        q!: * $signUp *
         # q!:  * хочу записаться на первое ТО, меня завут Антипов Максим * 
         script: 
             $reactions.answer(JSON.stringify($parseTree));
