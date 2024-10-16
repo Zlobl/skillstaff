@@ -19,7 +19,7 @@ theme: /Request
  
     state: ask_whatTO
         # для чего нужно ТО
-        q!: * {$whatFor * $need * $TO} *
+        q!: * {$whatFor * ($need/$doVInf) * $TO} *
         go!: /Response/answer_whatTO
 
     state: ask_technicalProblemTO
