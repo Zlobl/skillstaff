@@ -42,9 +42,9 @@ function test(parseTree) {
 
     log('[+++] 🧠🧠🧠 parseTree = ' + toPrettyString(parseTree));
 
-    var fio;
-    var phone;
-    var auto = null;
+    var fio = false;
+    var phone = false;
+    var auto = false;
 
 
     
@@ -53,13 +53,16 @@ function test(parseTree) {
      */
 
     if (!_.isUndefined(p["fio"])) fio = capitalizeWords(p["fio"][0]["text"]);
+    if (!_.isUndefined(p["_duckling.number"])) phone = validatePhoneNumber(p["_duckling.number"]) ? p["_duckling.number"] : false; 
+
+
     //if (!_.isUndefined(p["signUpTo"]) && p["signUpTo"][0]["CarBrand"]) auto =  p["signUpTo"][0]["CarBrand"][0]["value"]["name"]
 
 
 
 
 
-    return { 'fio': fio, 'auto': auto }; 
+    return { 'fio': fio, 'auto': auto, 'phone': phone }; 
 
 }
 
@@ -80,4 +83,25 @@ function deleteSessionObject(objArray, cnt) {
         delete $.session[name]
      });
 
+}
+
+/**
+ * Валидирует номер телефона.
+ * 
+ * Функция проверяет, начинается ли номер телефона с "+7" или "8" и состоит ли он ровно из 11 цифр.
+ *
+ * @param {string} phoneNumber - Номер телефона для валидации.
+ * @returns {boolean} - Возвращает true, если номер телефона валиден, иначе false.
+ */
+function validatePhoneNumber(phoneNumber) {
+    // Удаляем все символы, кроме цифр
+    var cleanedPhoneNumber = _.filter(phoneNumber, function (char) {
+        return /\d/.test(char);
+    }).join('');
+
+    // Проверяем, начинается ли номер с +7 или 8, и состоит ли он из 11 цифр
+    if (_.startsWith(phoneNumber, '+7') || _.startsWith(phoneNumber, '8')) {
+        return cleanedPhoneNumber.length === 11;
+    }
+    return false;
 }
