@@ -80,14 +80,6 @@ patterns:
     $rejection = { [* @неХочу *] [* @зачем *] [* @неЗнаю *] }
     $futureTime = {({*след* (* $day *|* $month *|* $week *|* $year *)})} || converter = convertToDays
     
-    # $inTo = {[*прой*] [*запис*] [$TO]}
-    # $inTo = {[* *пройти* *]  [* *запис* *] [$TO]}
-    # $fio =  {[@pymorphy.surn] [@pymorphy.name] [@pymorphy.patr]} 
-    # $signUpTo = {[$fio] [$CarBrand ] [$inTo]} || converter = test 
-    
-
-
-
 
     $inTo = {(пройт*/запис*) * $TO}
     $fio =  {[@pymorphy.surn] [@pymorphy.name] [@pymorphy.patr]} 
@@ -96,9 +88,9 @@ patterns:
 
 
     $signUp = ( 
-        {$inTo [$fio] [$CarBrand]} |
-        {[$inTo] $fio [$CarBrand]} |
-        {[$inTo] [$fio] $CarBrand} 
+        {$inTo * [$fio] * [$CarBrand]} |
+        {[$inTo] * $fio * [$CarBrand]} |
+        {[$inTo] * [$fio] * $CarBrand} 
         ) || converter = test
 
        
