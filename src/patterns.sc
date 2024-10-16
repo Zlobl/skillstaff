@@ -88,7 +88,14 @@ patterns:
 
 
     $signUp = ( 
+<<<<<<< HEAD
         {$inTo * [$fio] * [$CarBrand]}
         ) || converter = test
+=======
+        {$inTo * [$fio] * [$CarBrand]} |
+        {[$inTo] * $fio * [$CarBrand]} |
+        {[$inTo] * [$fio] * $CarBrand} 
+        ) || converter = getAutoEndName
+>>>>>>> 338f294 (teadf)
 
        
