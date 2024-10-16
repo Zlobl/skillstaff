@@ -21,7 +21,7 @@ theme: /Request
          # TODO:   есть сущность от джастов, нужно использвоть её
         state:  ask_userName
             q: $fio
-            go!: /Response/answer_howAreYou
+            go!: /Response/answer_userName
 
     
     state:  ask_howAreYou
