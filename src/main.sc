@@ -1,5 +1,25 @@
 require: requirements.sc
 
+patterns:
+
+    $GreaterZero = $regexp<[1-9]\d*> || converter = $converters.numberConverterDigit
+    $customNumber = ( $NumberOneDigitNatural| $NumberTwoDigit |  $NumberDozen ) || converter = $converters.numberConverterSum
+    $customNumberZero = (нол*|нул*|zero|0):0 || converter = $converters.numberConverterValue
+    $cityOrDate = {[* @duckling.date *][* $City *]}
+    $day = (({[$customNumber | $GreaterZero] (*день|*дней*|*дня*|*сут*)})| $customNumber | $GreaterZero )
+    $week = {[$customNumber | $GreaterZero] *недел* }  
+    $month = {[$customNumber | $GreaterZero] *месяц* } 
+    $year = {[$customNumber | $GreaterZero] (*год*|*лет*) } 
+    $periodToDay = ({[* $day *] [* $month *] [* $week *] [* $year *]}) || converter = convertToDays
+    $pastDate = (* @duckling.date *)
+    $curentFutureDate = (* @duckling.date *)
+    $oneWord = $regexp<\pL{1,}> 
+    $name = ({* @mystem.persn * [@mystem.famn]} | ($oneWord $oneWord $oneWord))
+    $rejection = { [* @неХочу *] [* @зачем *] [* @неЗнаю *] }
+    $futureTime = {({*след* (* $day *|* $month *|* $week *|* $year *)})} || converter = convertToDays
+    $signUpTo = {[* @pymorphy.surn *] [* @pymorphy.name * ] [* @pymorphy.patr *]} || converter = test
+
+
     
     
 init:

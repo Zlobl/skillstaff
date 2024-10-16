@@ -131,6 +131,44 @@ function convertToDays(parseTree) {
 
 }
 
+
+
+
+function test(parseTree) {
+    
+    var p = parseTree;
+
+    var fio;
+    var phone;
+    var auto;
+
+    log('[+++] 🧠🧠🧠 surn = ' + toPrettyString(parseTree));
+    
+
+    if (!_.isUndefined(p["pymorphy.surn"])
+        && !_.isUndefined(p["pymorphy.name"])
+        && !_.isUndefined(p["pymorphy.patr"])) {
+
+        fio = [p["pymorphy.surn"][0].value, p["pymorphy.name"][0].value, p["pymorphy.patr"][0].value].join(' ')
+    }
+    
+
+
+    /* Находим ФИО. 
+    Если найдена фамилия (и/или) имя (и/или) отчество, то группируем значения в строку 
+     */
+
+
+
+
+    return { 'fio': fio, 'test2': 1}; 
+
+}
+
+
+
+
+
 /**
  *  Удаляем объекты из $context.session
  * 
