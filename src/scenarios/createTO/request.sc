@@ -171,5 +171,6 @@ theme: /Request
     # #     q!: *
         
     # #     script:
-    # #         var text = "Денис, номер телефона 89965008843, машина Ксиоми"
+    # #         var text = "Денис, номер телефона 89965008843, машина Ксиоми";
     # #         $reactions.answer(JSON.stringify($jsapi.context().nluResults.selected.debugInfo))
+    
