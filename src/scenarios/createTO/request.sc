@@ -1,20 +1,10 @@
 
 theme: /Request
 
-    # state: test123
-    #     q!: @duckling.number
-    #     script: 
-    #         $reactions.answer(JSON.stringify($parseTree));
 
 
 
     # TODO: должен быть предусмотрен минимальный препроцессинг запросов пользователя (отсеивание слишком длинных запросов, очистка запроса от мусорных символов, которые теоретически могут помешать работе матчера)
-
-    # TODO: ДЛЯ ТЕСТОВ - УДАЛИТЬ
-    # state: CARS
-    #     q!: $CarBrand
-    #     script:
-    #         $reactions.answer(JSON.stringify($parseTree));
 
 
     # хочу записаться на первое ТО
@@ -27,10 +17,24 @@ theme: /Request
         q!: * $signUp *
         # q!:  * хочу записаться на первое ТО, меня завут Антипов Максим * 
         script: 
-            $reactions.answer(JSON.stringify($parseTree));
 
-        a: Да, сработало это говно 
+            // проверка номера телефона
+            var phone =  extractDigits($parseTree.text);
+            if (phone)  $temp.phone =  validatePhoneNumber(phone) ?  phone: null;
 
+            // Проверка ФИО 
+            //TODO: если есть в других сценариях, то ФИО подтягивает из $client.fio
+            if ($parseTree["_signUp"] && $parseTree["_signUp"]["fio"])  $temp.fio =  $parseTree["_signUp"]["fio"];
+
+            // Проверка Авто
+            if ($parseTree["_signUp"] && $parseTree["_signUp"]["auto"])  $temp.auto =  $parseTree["_signUp"]["auto"];
+
+
+
+
+
+
+        a: Да, сработало это говно {{$temp.fio}} {{$temp.auto }} {{$temp.phone}} 
    
    
    
