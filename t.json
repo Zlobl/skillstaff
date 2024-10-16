@@ -12,10 +12,6 @@
     "signUpTo": [
         {
             "tag": "signUpTo",
-            "pattern": "signUpTo",
-            "text": "Иванов пётр алексдрович",
-            "startPos": 0,
-            "endPos": 3,
             "words": [
                 "иванов",
                 "петр",
