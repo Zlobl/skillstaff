@@ -39,7 +39,7 @@ theme: /Request
             go!: /Response/answer_howAreYou_bad
         
 
-
+    # TODO:   Кажется, это должно быть локальным
     state: ask_bye
         q!: $comBye
         go!: /Response/answer_bye
@@ -48,6 +48,7 @@ theme: /Request
 
     state: NoMatch
         event!: noMatch
-        a: Я не понял. Вы сказали: {{$request.query}}
+        script: $temp.response = toPrettyString($parseTree);
+        a: Я не понял. Вы сказали: {{$temp.response}}
 
             
