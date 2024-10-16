@@ -2,56 +2,58 @@
    
     <test-case id = "ask_priceTO">
         <q>сколько стоит техобслуживание</q>
-        <a state="/Response/answer_priceTO"></a>
+        <a state="/Response/answer_priceTO">Стоимость обслуживания можно рассчитать [тут](http://someautodealer/techservice#calculate)</a>
     </test-case>
     
     <test-case id = "ask_scheduleTO">
-        <q>когда делать ТО</q>
-        <a state="/Response/answer_scheduleTO"></a>
+        <q>когда ехать на ТО</q>
+        <a state="/Response/answer_scheduleTO">График технического обслуживания можно узнать [тут](http://someautodealer/techservice).</a>
     </test-case>
     
     <test-case id = "ask_claimTO">
         <q>почините то что сломали</q>
-        <a state="/Response/answer_claimTO"></a>
+        <a state="/Response/answer_claimTO">[Позвоните моим коллегам](http://someautodealer/contacts), чтобы разобраться в ситуации.</a>
     </test-case>
     
     <test-case id = "ask_whatTO">
         <q>зачем нужно ТО</q>
-        <a state="/Response/answer_whatTO"></a>
+        <a state="/Response/answer_whatTO">Техническое обслуживание нужно, чтобы предотвратить вероятность случайных поломок, а также произвести регулировку всех основных узлов и агрегатов, чтобы максимально снизить расход топлива и смазочных материалов.</a>
+        <a state="/Response/answer_technicalProblemTO">Давайте запишу вас на техническое обслуживание?</a>
     </test-case>
     
     <test-case id = "ask_technicalProblemTO">
         <q>купил машину у вас недавно и она почему то стала гудеть на 3000</q>
-        <a state="/Response/answer_technicalProblemTO"></a>
+        <a state="/Response/answer_technicalProblemTO">Давайте запишу вас на техническое обслуживание?</a>
     </test-case>
     
      <test-case id = "ask_technicalProblemTOYes">
         <q>купил машину у вас недавно и она почему то стала гудеть на 3000</q>
-        <a state="/Response/answer_technicalProblemTO"></a>
+        <a state="/Response/answer_technicalProblemTO">Давайте запишу вас на техническое обслуживание?</a>
         <q>да</q>
-        <a state="/Response/ask_signUpTo"></a>
+        <!--TODO отредактировать, после появления ответов в отдельном файле-->
+        <a state="/Response/answer_signUpTo"></a>
     </test-case>  
     
      <test-case id = "ask_technicalProblemTONo">
         <q>купил машину у вас недавно и она почему то стала гудеть на 3000</q>
-        <a state="/Response/answer_technicalProblemTO"></a>
+        <a state="/Response/answer_technicalProblemTO">Давайте запишу вас на техническое обслуживание?</a>
         <q>нет</q>
-        <a state="/Response/answer_technicalProblemTONo"></a>
+        <a state="/Response/answer_technicalProblemTONo">Если передумаете, дайте нам знать.</a>
     </test-case>  
     
     <test-case id = "ask_discountTO">
         <q>на ТО есть скидки?</q>
-        <a state="/Response/answer_discountTO"></a>
+        <a state="/Response/answer_discountTO">Акции на техническое обслуживание представлены [тут](http://someautodealer/techservice#actions)</a>
     </test-case>
     
     <test-case id = "ask_whatTimeTO">
         <q>сколько по времени занимает ТО</q>
-        <a state="/Response/answer_TimeTO"></a>
+        <a state="/Response/answer_whatTimeTO">В среднем техническое обслуживание занимает 2 часа. Зависит от конкретного плана работ.</a>
     </test-case>
     
     <test-case id = "ask_whatFillingTO">
         <q>в плановое ТО что входит</q>
-        <a state="/Response/answer_whatFillingTO"></a>
+        <a state="/Response/answer_whatFillingTO">План работ технического обслуживания можно узнать [тут](http://someautodealer/techservice).</a>
     </test-case>
     
 </test>

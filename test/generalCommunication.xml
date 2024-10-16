@@ -7,26 +7,26 @@
     
     <test-case id = "ask_whoAreYouName">
         <q>как тебя зовут</q>
-        <a state="/Response/whoAreYouName">Меня зовут Вася.</a>
-        <a state="/Response/whoAreYouName">А вас?</a>
+        <a state="/Response/answer_whoAreYouName">Меня зовут Вася.</a>
+        <a state="/Response/answer_whoAreYouName">А вас?</a>
+        <!--TODO не распознаем имена-->
         <q>Алексей</q>
         <a state="/Response/answer_userName">Приятно познакомиться!</a>
     </test-case>
     
-    <test-case id = "ask_howAreYou">
+    <test-case id = "ask_howAreYou_good">
         <q>как дела</q>
         <a state="/Response/answer_howAreYou">Отлично! А у вас?</a>
-    </test-case>
-    
-    <test-case id = "ask_howAreYou_good">
         <q>хорошо</q>
         <a state="/Response/answer_howAreYou_good">Это отлично! Как я могу помочь?</a>
     </test-case>
     
-    <test-case id = "ask_bad">
+    <test-case id = "ask_howAreYou_bad">
+        <q>как дела</q>
+        <a state="/Response/answer_howAreYou">Отлично! А у вас?</a>
         <q>плохо</q>
         <a state="/Response/answer_howAreYou_bad">Ужас! Могу ли я чем-то помочь?</a>
-    </test-case>
+    </test-case>    
     
     <test-case id = "ask_bye">
         <q>пока</q>

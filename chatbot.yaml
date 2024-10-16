@@ -24,7 +24,10 @@ injector:
 
 tests:
   include:
-    - test.xml
+    - generalCommunication.xml
+    - thematic.xml
+    - createTO.xml
+    
 
 nlp:
   intentNoMatchThresholds:
