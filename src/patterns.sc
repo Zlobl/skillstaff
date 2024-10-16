@@ -65,7 +65,7 @@ patterns:
 
     #словари
     $GreaterZero = $regexp<[1-9]\d*> || converter = $converters.numberConverterDigit
-    $customNumber = ( $NumberOneDigitNatural| $NumberTwoDigit |  $NumberDozen ) || converter = $converters.numberConverterSum
+    $customNumber = ( @duckling.number) 
     $customNumberZero = (нол*|нул*|zero|0):0 || converter = $converters.numberConverterValue
     $cityOrDate = {[* @duckling.date *][* $City *]}
     $day = (({[$customNumber | $GreaterZero] (*день|*дней*|*дня*|*сут*)})| $customNumber | $GreaterZero )
@@ -79,11 +79,31 @@ patterns:
     $name = ({* @mystem.persn * [@mystem.famn]} | ($oneWord $oneWord $oneWord))
     $rejection = { [* @неХочу *] [* @зачем *] [* @неЗнаю *] }
     $futureTime = {({*след* (* $day *|* $month *|* $week *|* $year *)})} || converter = convertToDays
+    
+    # $inTo = {[*прой*] [*запис*] [$TO]}
+    # $inTo = {[* *пройти* *]  [* *запис* *] [$TO]}
+    # $fio =  {[@pymorphy.surn] [@pymorphy.name] [@pymorphy.patr]} 
+    # $signUpTo = {[$fio] [$CarBrand ] [$inTo]} || converter = test 
+    
 
-    $inTo = {[* *прой* *] [* *запис* *] [$TO]}
+
+
+
+    $inTo = {(пройт*/запис*) * $TO}
     $fio =  {[@pymorphy.surn] [@pymorphy.name] [@pymorphy.patr]} 
-    $signUpTo = {[$inTo] [$fio] [$CarBrand]} || converter = test 
-    
 
 
-    
+
+
+    $signUp = ( 
+        {$inTo $fio $CarBrand} $customNumber |
+        $customNumber {$inTo $fio $CarBrand} |
+        $inTo {$fio $CarBrand $customNumber} |
+        {$fio $CarBrand $customNumber} $inTo |
+        $fio {$inTo $CarBrand $customNumber} |
+        {$inTo $CarBrand $customNumber} $fio |
+        $CarBrand {$inTo $fio $customNumber} |
+        {$inTo $fio $customNumber} $CarBrand 
+        ) || converter = test
+
+       

@@ -31,7 +31,7 @@ tests:
 
 nlp:
   intentNoMatchThresholds:
-    phrases: 0.44
+    phrases: 1
     patterns: 0.2
 
   nbestPatterns: 5

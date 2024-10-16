@@ -1,6 +1,13 @@
 
 theme: /Request
 
+    state: test123
+        q!: @duckling.number
+        script: 
+            $reactions.answer(JSON.stringify($parseTree));
+
+
+
     # TODO: должен быть предусмотрен минимальный препроцессинг запросов пользователя (отсеивание слишком длинных запросов, очистка запроса от мусорных символов, которые теоретически могут помешать работе матчера)
 
     # TODO: ДЛЯ ТЕСТОВ - УДАЛИТЬ
@@ -16,8 +23,8 @@ theme: /Request
     # тех обслуживание пройти у вас можно? пройти ТО автомобиль шкода
     # техоб надо пройти подошло время ТО 12
     state: ask_signUpTo
-        q!: $signUpTo
-        # q!: $inTo
+        # q!: * ($signUpTo/$signUpfio/$signUpCar) *
+        q!: $signUp 
         # q!:  * хочу записаться на первое ТО, меня завут Антипов Максим * 
         script: 
             $reactions.answer(JSON.stringify($parseTree));
