@@ -1,24 +1,4 @@
 /**
- *  Конвертер для паттерна $periodToDay и $nextPeriod
- * 
- * @author Antipov Roman telegram: @antip91r
- * @param {Object} context - объект контекста диалога (опционально)
- * @returns {Number} Number - количество дней в parseTree
- */
-function convertToDays(parseTree) {
-
-    var day = !_.isUndefined(parseTree.day) ? (_.isUndefined(parseTree.day[0].value) ? 1 : parseTree.day[0].value) : 0;
-    var week = !_.isUndefined(parseTree.week) ? (_.isUndefined(parseTree.week[0].value) ? 7 : parseTree.week[0].value * 7) : 0;
-    var month = !_.isUndefined(parseTree.month) ? (_.isUndefined(parseTree.month[0].value) ? 31 : parseTree.month[0].value * 31) : 0;
-    var year = !_.isUndefined(parseTree.year) ? (_.isUndefined(parseTree.year[0].value) ? 365 : parseTree.year[0].value * 365) : 0;
-
-    return day + week + month + year
-
-}
-
-
-
-/**
  * Преобразует каждое слово строки, делая первую букву заглавной.
  *
  * @param {string} input - Строка, содержащая слова для преобразования.
@@ -47,22 +27,6 @@ function getAutoEndName(parseTree) {
 }
 
 
-
-
-/**
- *  Удаляем объекты из $context.session
- * 
- * @author Antipov Roman telegram: @antip91r
- * @param {Array} массив с наименованием объектов которые нужно удалить
- * @param {Object} context - объект контекста диалога (опционально)
- */
-function deleteSessionObject(objArray, cnt) {
-    var $ = cnt || $jsapi.context();
-    _.each(objArray, function (name) {
-        delete $.session[name]
-     });
-
-}
 
 /**
  * Валидирует номер телефона.
@@ -96,4 +60,31 @@ function extractDigits(str) {
 
     // Если нашли подстроку с цифрами, возвращаем её, иначе возвращаем null
     return _.isNull(match) ? null : match[0];
+}
+
+
+/**
+ * Записываем статус  в google таблицу
+ * @param {String} [sheetsName] - имя таблицы
+ * @returns 
+ */
+
+function googleAppendStatus(phone, fio, auto) {
+
+    var IntegrationId = configGoogle.IntegrationId;
+    var spreadsheetId = configGoogle.spreadsheetId;
+
+    var body = {
+        "range": googleHistoty + "!A1:C15",
+
+        "values": [[ phone, fio, auto ] ]
+    }
+    $integration.customRequest(
+        IntegrationId,
+        "https://sheets.googleapis.com/v4/spreadsheets/" + spreadsheetId + "/values/" + googleHistoty + "!A1:C15:append" + "?valueInputOption=RAW",
+        "POST",
+        null,
+        body
+    );
+
 }
