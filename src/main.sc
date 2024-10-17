@@ -9,11 +9,13 @@ init:
         }
     };
 
-    bind("selectNLUResult", function($context) {
-        // Для отладки выведем результаты в лог.
-        log('[+++] 🧠🧠🧠 nluResults = ' + toPrettyString($context.nluResults));
-    });
 
+    /* Чистим клиентский запрос от ',', '.' */
+    bind("preMatch", function($context) {
+        if ($context.request && $context.request.query){
+            $context.request.query = replaceDotsAndCommas($context.request.query);
+        }
+    });
 
 
     /* Для более короткого обращени к инжектору в функциях */
@@ -29,10 +31,15 @@ init:
         $session.historyState.push($context.currentState);
     });
 
-    /* Переводим состояние в стейт, если срабатывает обрботчик onScriptError */
+    /* Обрабатывает обрботчик onScriptError */
     bind("onScriptError", function($context) {
-        $reactions.answer('Ух бля, что-то сломалось');
+        $reactions.answer('Что-то сломалось, причина: ');
         $reactions.answer(JSON.stringify($context.exception.message));
     });
 
 
+theme: /
+
+    state: LengthLimit
+        event!: lengthLimit
+        a: Упс, кажется это слишком длинный текст, попробуй что-то сказать по короче

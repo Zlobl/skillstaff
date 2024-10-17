@@ -14,7 +14,6 @@ function capitalizeWords(input) {
 
 
 
-
 function getAutoEndName(parseTree) {
     
     var p = parseTree;
@@ -25,7 +24,6 @@ function getAutoEndName(parseTree) {
     return { 'fio': fio, 'auto': auto }; 
 
 }
-
 
 
 /**
@@ -93,4 +91,18 @@ function getFioString(data) {
 
     // Конкатенируем Фамилию, Имя и Отчество, игнорируя пустые значения
     return { "name": _.compact([surname, name, patr]).join(' ') };
+}
+
+
+/**
+ * Заменяет все точки и запятые в строке на пробелы.
+ *
+ * @param {string} input - Входная строка, в которой будут произведены замены.
+ * @returns {string} - Изменённая строка, в которой точки и запятые заменены пробелами.
+ */
+function replaceDotsAndCommas(input) {
+    // Используем _.map из библиотеки underscore для перебора символов и замены точек и запятых
+    return _.map(input, function (char) {
+        return char === '.' || char === ',' ? ' ' : char;
+    }).join('');
 }
