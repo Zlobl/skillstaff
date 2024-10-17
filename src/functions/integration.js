@@ -1,25 +1,27 @@
 /**
- * Сервис получения погоды, метод https://openweathermap.org/api/forecast30
- * 
- * * @author Antipov Roman telegram: @antip91r
- * @param {Object} params - параметры
- * @property {String} params.lat - Latitude
- * @property {String} params.lon - Longitude
- * @returns {Object|null} - Объект с данными о погоде | null в случае ошибки   
+ * Записываем статус  в google таблицу
+ * @param {String} [sheetsName] - имя таблицы
+ * @returns 
  */
-function getWeather(params) {
-    var $session = $.session;
-    var res = $http.get($session.API.openweathermap, {
-        headers: {
-            "accept": "application/json",
-        },
-        query: {
-            lat: params.lat,
-            lon: params.lon,
-            key: $session.KEY_API.openweathermap,
 
-        }
-    })
-    if (res && res.isOk) return res.data;
-    return null;
+function googleAppendStatus(phone, fio, auto) {
+
+    var IntegrationId = configGoogle.IntegrationId;
+    var spreadsheetId = configGoogle.spreadsheetId;
+
+    var status = configGoogle.status;
+
+    var body = {
+        "range": status + "!A1:C15",
+
+        "values": [[phone, fio, auto]]
+    }
+    $integration.customRequest(
+        IntegrationId,
+        "https://sheets.googleapis.com/v4/spreadsheets/" + spreadsheetId + "/values/" + status + "!A1:C15:append" + "?valueInputOption=RAW",
+        "POST",
+        null,
+        body
+    );
+
 }

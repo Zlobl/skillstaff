@@ -1,5 +1,5 @@
-require: dicts/countryCodes.yaml
-    var = countryCodes
+require: dicts/configGoogle.yaml
+    var = configGoogle
     
 require: common.js
     module = sys.zb-common
@@ -33,5 +33,3 @@ require: scenarios/generalCommunication/request.sc
 require: scenarios/generalCommunication/response.sc
 require: scenarios/thematic/request.sc
 require: scenarios/thematic/response.sc
-
-
