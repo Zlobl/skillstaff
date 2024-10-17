@@ -92,7 +92,8 @@ patterns:
         ) || converter = getAutoEndName
 
     $signUpContext = ( 
-         {$fio * [$CarBrand]} |
-         {[$fio] * $CarBrand} 
-         ) || converter = getAutoEndName
+        {$customNumber * $fio * [$CarBrand]} |
+        {[$customNumber] * $fio * [$CarBrand]} |
+        {[$customNumber] * [$fio] * $CarBrand} 
+        ) || converter = getAutoEndName
                
