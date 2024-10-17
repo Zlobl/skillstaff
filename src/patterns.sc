@@ -82,18 +82,17 @@ patterns:
     
     $thanks = (спасибо|{большое спасибо}|{Спасибо еще раз}|{Спасибо (вам|тебе)}|{Спасибо (всё получилось|принято|ясно|понятно|понял*|вопрос решен)}|спс|благодарю|благодарствую|благодарим)
     $inTo = {(пройт*/запис*) [на] $TO}
-    $fio =  {[@pymorphy.surn] [@pymorphy.name] [@pymorphy.patr]} 
+    $fio =  {[@pymorphy.surn] [@pymorphy.name] [@pymorphy.patr]} || converter = getFioString
     
 
 
 
-    # $signUp = ( 
-    #     {$inTo * [$fio] * [$CarBrand]}
-    #     ) || converter = getAutoEndName
-
     $signUp = ( 
-         {$inTo * [$fio] * [$CarBrand]} |
-         {[$inTo] * $fio * [$CarBrand]} |
-         {[$inTo] * [$fio] * $CarBrand} 
+        {$inTo * [$fio] * [$CarBrand]}
+        ) || converter = getAutoEndName
+
+    $signUpContext = ( 
+         {$fio * [$CarBrand]} |
+         {[$fio] * $CarBrand} 
          ) || converter = getAutoEndName
                

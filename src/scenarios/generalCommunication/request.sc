@@ -14,15 +14,15 @@ theme: /Request
 
      # Общекоммуникативные мини-сценарии. как тебя зовут / ты кто
     state: ask_whoAreYouName
-        q!: * {$how * $youAcc * $nameVPresPl3} *
-        script:
-            if ($parseTree["_signUp"] && $parseTree["_signUp"]["fio"])  $client.fio =  $parseTree["_signUp"]["fio"];
-       
+        q!: * {$how * $youAcc * $nameVPresPl3} *       
         go!: /Response/answer_whoAreYouName
 
 
         state:  ask_userName
             q: $fio
+            script: 
+                if ($parseTree["_fio"] && $parseTree["_fio"]["name"])  $client.fio =  $parseTree["_fio"]["name"];
+
             go!: /Response/answer_userName
 
     

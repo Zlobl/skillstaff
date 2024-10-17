@@ -13,22 +13,32 @@ theme: /Request
     # тех обслуживание пройти у вас можно? пройти ТО автомобиль шкода
     # техоб надо пройти подошло время ТО 12
     state: ask_signUpTo
-        # q!: * ($signUpTo/$signUpfio/$signUpCar) *
         q!: * $signUp *
-        # q!:  * хочу записаться на первое ТО, меня завут Антипов Максим * 
         script: 
             // проверка номера телефона
-            # $client = $client || {}
+
             var phone =  extractDigits($parseTree.text);
             if (phone)  $client.phone =  validatePhoneNumber(phone) ?  phone: null;
             // Проверка ФИО 
-            //TODO: если есть в других сценариях, то ФИО подтягивает из $client.fio
+            //INFO: Реализовали возможность, подобрать ФИО ещё раз, 
+
             if ($parseTree["_signUp"] && $parseTree["_signUp"]["fio"])  $client.fio =  $parseTree["_signUp"]["fio"];
             // Проверка Авто
             if ($parseTree["_signUp"] && $parseTree["_signUp"]["auto"])  $client.auto =  $parseTree["_signUp"]["auto"];
             // Обязательно отлавливаем телефон, т.к. без него сотрудник не свяжется
             if (($client.fio && $client.phone) || ($client.auto && $client.phone)) $reactions.transition({value: "/Response/answer_signUpTo", deferred: false});
             else   $reactions.transition({value: "/Response/answer_signToClarification", deferred: false});
+
+
+
+        state: ask_signUpToContext
+            q: $signUpContext
+            go!: /Request/ask_signUpTo
+
+            
+
+
+
 
 
 

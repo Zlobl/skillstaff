@@ -97,3 +97,37 @@ function extractDigits(str) {
     // Если нашли подстроку с цифрами, возвращаем её, иначе возвращаем null
     return _.isNull(match) ? null : match[0];
 }
+
+
+/**
+ * Извлекает строку с Фамилией, Именем и Отчеством из объекта данных.
+ * Ищет фамилию в "pymorphy.surn", имя в "pymorphy.name", отчество в "pymorphy.patr".
+ * 
+ * @param {Object} data - Объект с данными, содержащий информацию о ФИО.
+ * @returns {string} Конкатенированная строка Фамилия Имя Отчество (если отчество есть).
+ */
+function getFioString(data) {
+    // Проверяем, что объект содержит необходимые поля
+    if (!data) {
+        return '';
+    }
+
+    // Извлекаем фамилию, имя и отчество с использованием underscore
+    var surname = _.chain(data["pymorphy.surn"])
+        .pluck('value')
+        .first()
+        .value() || '';
+
+    var name = _.chain(data["pymorphy.name"])
+        .pluck('value')
+        .first()
+        .value() || '';
+
+    var patr = _.chain(data["pymorphy.patr"])
+        .pluck('value')
+        .first()
+        .value() || '';
+
+    // Конкатенируем Фамилию, Имя и Отчество, игнорируя пустые значения
+    return { "name": _.compact([surname, name, patr]).join(' ') };
+}
