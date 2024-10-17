@@ -10,7 +10,7 @@
         <a state="/Response/answer_whoAreYouName">Меня зовут Вася.</a>
         <a state="/Response/answer_whoAreYouName">А вас?</a>>
         <q>Алексей</q>
-        <a state="/Response/answer_userName">Приятно познакомиться!</a>
+        <a state="/Response/answer_userName">Приятно познакомиться, Алексей!</a>
     </test-case>
     
     <test-case id = "ask_howAreYou_good">

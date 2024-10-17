@@ -24,7 +24,7 @@ theme: /Response
         go: /Request/ask_whoAreYouName
 
     state: answer_userName
-        a: Приятно познакомиться! {{$client.fio}}
+        a: Приятно познакомиться, {{$client.fio}}! 
         
 
     state: answer_bye

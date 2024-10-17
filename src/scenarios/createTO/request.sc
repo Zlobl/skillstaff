@@ -16,12 +16,10 @@ theme: /Request
         q!: * $signUp *
         script: 
             // проверка номера телефона
-
             var phone =  extractDigits($parseTree.text);
             if (phone)  $client.phone =  validatePhoneNumber(phone) ?  phone: null;
             // Проверка ФИО 
             //INFO: Реализовали возможность, подобрать ФИО ещё раз, 
-
             if ($parseTree["_signUp"] && $parseTree["_signUp"]["fio"])  $client.fio =  $parseTree["_signUp"]["fio"];
             // Проверка Авто
             if ($parseTree["_signUp"] && $parseTree["_signUp"]["auto"])  $client.auto =  $parseTree["_signUp"]["auto"];
@@ -33,7 +31,18 @@ theme: /Request
 
         state: ask_signUpToContext
             q: * $signUpContext *
-            go!: /Request/ask_signUpTo
+            script:
+                $reactions.answer(JSON.stringify($parseTree))
+                var phone =  extractDigits($parseTree.text);
+                if (phone)  $client.phone =  validatePhoneNumber(phone) ?  phone: null;
+                // Проверка ФИО 
+                //INFO: Реализовали возможность, подобрать ФИО ещё раз, 
+                if ($parseTree["_signUpContext"] && $parseTree["_signUpContext"]["fio"])  $client.fio =  $parseTree["_signUpContext"]["fio"];
+                // Проверка Авто
+                if ($parseTree["_signUpContext"] && $parseTree["_signUpContext"]["auto"])  $client.auto =  $parseTree["_signUpContext"]["auto"];
+                // Обязательно отлавливаем телефон, т.к. без него сотрудник не свяжется
+                if (($client.fio && $client.phone) || ($client.auto && $client.phone)) $reactions.transition({value: "/Response/answer_signUpTo", deferred: false});
+                else   $reactions.transition({value: "/Response/answer_signToClarification", deferred: false});
 
             
 
