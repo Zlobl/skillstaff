@@ -25,9 +25,8 @@ theme: /Response
         go: /Request/ask_whoAreYouName
 
     state: answer_userName
-        a: Приятно познакомиться!
-        script: 
-            if ($parseTree["_signUp"] && $parseTree["_signUp"]["fio"])  $client.fio =  $parseTree["_signUp"]["fio"];
+        a: Приятно познакомиться! {{$client.fio}}
+        
 
     state: answer_bye
         a: Пока пока!

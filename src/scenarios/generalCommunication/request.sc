@@ -15,10 +15,12 @@ theme: /Request
      # Общекоммуникативные мини-сценарии. как тебя зовут / ты кто
     state: ask_whoAreYouName
         q!: * {$how * $youAcc * $nameVPresPl3} *
+        script:
+            if ($parseTree["_signUp"] && $parseTree["_signUp"]["fio"])  $client.fio =  $parseTree["_signUp"]["fio"];
+       
         go!: /Response/answer_whoAreYouName
 
 
-         # TODO:   есть сущность от джастов, нужно использвоть её
         state:  ask_userName
             q: $fio
             go!: /Response/answer_userName

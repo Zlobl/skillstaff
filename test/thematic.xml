@@ -30,8 +30,10 @@
         <q>купил машину у вас недавно и она почему то стала гудеть на 3000</q>
         <a state="/Response/answer_technicalProblemTO">Давайте запишу вас на техническое обслуживание?</a>
         <q>да</q>
-        <!--TODO отредактировать, после появления ответов в отдельном файле-->
-        <a state="/Response/answer_signUpTo"></a>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- ваше ФИО</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <a state="/Response/answer_signToClarification">- марка автомобиля</a>
     </test-case>  
     
      <test-case id = "ask_technicalProblemTONo">

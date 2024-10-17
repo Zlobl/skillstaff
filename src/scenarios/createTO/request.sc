@@ -18,165 +18,25 @@ theme: /Request
         # q!:  * хочу записаться на первое ТО, меня завут Антипов Максим * 
         script: 
             // проверка номера телефона
-            # $client.listTo = $client.listTo || {}
+            # $client = $client || {}
             var phone =  extractDigits($parseTree.text);
-            if (phone)  $client.listTo.phone =  validatePhoneNumber(phone) ?  phone: null;
+            if (phone)  $client.phone =  validatePhoneNumber(phone) ?  phone: null;
             // Проверка ФИО 
-            //TODO: если есть в других сценариях, то ФИО подтягивает из $client.listTo.fio
-            if ($parseTree["_signUp"] && $parseTree["_signUp"]["fio"])  $client.listTo.fio =  $parseTree["_signUp"]["fio"];
+            //TODO: если есть в других сценариях, то ФИО подтягивает из $client.fio
+            if ($parseTree["_signUp"] && $parseTree["_signUp"]["fio"])  $client.fio =  $parseTree["_signUp"]["fio"];
             // Проверка Авто
-            if ($parseTree["_signUp"] && $parseTree["_signUp"]["auto"])  $client.listTo.auto =  $parseTree["_signUp"]["auto"];
+            if ($parseTree["_signUp"] && $parseTree["_signUp"]["auto"])  $client.auto =  $parseTree["_signUp"]["auto"];
             // Обязательно отлавливаем телефон, т.к. без него сотрудник не свяжется
-            if (($client.listTo.fio && $client.listTo.phone) || ($client.listTo.auto && $client.listTo.phone)) $reactions.transition({value: "/Response/answer_signUpTo", deferred: false});
+            if (($client.fio && $client.phone) || ($client.auto && $client.phone)) $reactions.transition({value: "/Response/answer_signUpTo", deferred: false});
             else   $reactions.transition({value: "/Response/answer_signToClarification", deferred: false});
 
 
 
-   
-   
-   
-   
-   
-    #         /*
-
-    #         фио, 
-    #         номер, 
-    #         модель
-
-            
-
-
-    #         Прикзнак того, что есть фио 
-    #            если в запросе есть одна из 3-х сущностей, то ФИО есть. 
-    #             В ответе указываем  @mystem.famn +  @pymorphy.name + @mystem.patrn
-
-    #         Если известные 2 агрумента, то конец
-
-    #         Иначе, доспрашиваем один из недостоющих аргументов
-    #             Доспрашиваем нужные аргументы
-
-    #         */
-
-
-
-
-    #     if: ($session.phone && $session.name) || ($session.phone && $session.car)
-    #         a: Оформляю заявку на техобслуживание.
-    #         a: Наш сотрудник свяжется с вами по номеру "{{$session.phone}}" и уточнит время.
-    #         a: {{$session.car}} {{$session.name}}
-
-
-
-
-    #     else: 
-    #         a: Для записи на ТО уточните, пожалуйста, ваше имя, номер телефона и марку автомобиля.
-                
-    #     state: SignToClarification
-    #         q: $carEan
-    #         q: $carRus
-    #         q: *
-    #         script: 
-    #             var entities = $jsapi.context().entities
-    #             if (!$session.name){
-    #                 $.session.name = _.filter(entities, function(en) {
-    #                                     return en.pattern == "pymorphy.name";
-    #                                         }).map(function(en) {
-    #                                             return en.value;
-    #                 });
-    #                 if (_.isEmpty($.session.name)) delete  $.session.name;
-    #             }
-    #             if (!$session.phone){
-    #                 $.session.phone = _.filter(entities, function(en) {
-    #                 return en.pattern == "duckling.phone-number";
-    #                 }).map(function(en) {
-    #                 return en.value;
-    #                 });
-    #                 if (_.isEmpty($.session.phone)) delete  $.session.phone;
-    #             }
-    #             if (!$session.car){
-    #                 var puttetn = $jsapi.context().nluResults.selected.debugInfo
-    #                 if (puttetn && puttetn.pattern && puttetn.effectivePattern && (puttetn.pattern == "$carEan" || puttetn.pattern == "$carRus")){
-    #                     $.session.car = puttetn.effectivePattern
-    #                     $reactions.answer(JSON.stringify($session.car))
-    #                 }
-    #             }
-    #         if: ($session.phone && $session.name) || ($session.phone && $session.car)
-    #             go!: /SignUpTo
-    #         else:
-    #             go!: /SignToClarification2
-        # state: SignToClarification
-        #     q: $CarBrand
-        #     q: *
-        #     script: 
-        #         var entities = $jsapi.context().entities
-        #         if (!$session.name){
-        #             $.session.name = _.filter(entities, function(en) {
-        #                                 return en.pattern == "pymorphy.name";
-        #                                     }).map(function(en) {
-        #                                         return en.value;
-        #             });
-        #             if (_.isEmpty($.session.name)) delete  $.session.name;
-        #         }
-        #         if (!$session.phone){
-        #             $.session.phone = _.filter(entities, function(en) {
-        #             return en.pattern == "duckling.phone-number";
-        #             }).map(function(en) {
-        #             return en.value;
-        #             });
-        #             if (_.isEmpty($.session.phone)) delete  $.session.phone;
-        #         }
-        #         //TODO: здесь надо подобрать паттерн по парстри так же как с именем
-        #         if (!$session.car){
-        #             var puttetn = $jsapi.context().nluResults.selected.debugInfo
-        #             if (puttetn && puttetn.pattern && puttetn.effectivePattern && (puttetn.pattern == "$carEan" || puttetn.pattern == "$carRus")){
-        #                 $.session.car = puttetn.effectivePattern
-        #                 $reactions.answer(JSON.stringify($session.car))
-        #             }
-        #         }
-        #     if: ($session.phone && $session.name) || ($session.phone && $session.car)
-        #         go!: /SignUpTo
-        #     else:
-        #         go!: /SignToClarification2
-        
-        
-    # state: SignToClarification2
-    #     script:
-    #         if ($.session.name && !$.session.phone && !$session.car){
-    #             $reactions.answer($.session.name + ", уточните номер телефона и марку автомобиля.");
-    #         }else if(!$.session.name && $.session.phone && !$session.car){
-    #             $reactions.answer("Уточните ваше имя и марку автомобиля.");
-    #         }else if(!$.session.name && !$.session.phone && $session.car){
-    #             $reactions.answer("Уточните ваше имя и номер телефона.");
-    #         }else if($.session.name && !$.session.phone && $session.car){
-    #             $reactions.answer("Для записи уточните ваш номер телефона.");
-    #         }else { $reactions.answer("Для записи на ТО уточните ваше имя, номер телефона и марку автомобиля."); }
-    #         $reactions.transition( {value: "/SignUpTo/SignToClarification", deferred: true} );
-            
-    #     # state: GoSignToClarification
-    #     #     q: *
-    #     #     go!: /SignUpTo/SignToClarification
-            
             
     state: DeleteSession
         q!: deletesession
         script:
             $jsapi.stopSession();
-            delete $client.listTo.phone
-            delete $client.listTo.fio
-            delete $client.listTo.auto
-
-        
-    # state: Match
-    #     event!: match
-    #     a: {{$context.intent.answer}}
-
-
-
-    # # state:
-    # #     q!: $test
-    # #     q!: *
-        
-    # #     script:
-    # #         var text = "Денис, номер телефона 89965008843, машина Ксиоми";
-    # #         $reactions.answer(JSON.stringify($jsapi.context().nluResults.selected.debugInfo))
-    
+            delete $client.phone
+            delete $client.fio
+            delete $client.auto

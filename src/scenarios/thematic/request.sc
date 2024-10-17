@@ -31,7 +31,7 @@ theme: /Request
         state: ask_technicalProblemTOYes
             # да
             q!: $yes
-            go!: /Response/ask_signUpTo
+            go!: /Request/ask_signUpTo
         
         state: ask_technicalProblemTONo
             # нет

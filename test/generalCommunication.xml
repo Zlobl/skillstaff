@@ -8,10 +8,9 @@
     <test-case id = "ask_whoAreYouName">
         <q>как тебя зовут</q>
         <a state="/Response/answer_whoAreYouName">Меня зовут Вася.</a>
-        <a state="/Response/answer_whoAreYouName">А вас?</a>
-        <!--TODO не распознаем имена-->
+        <a state="/Response/answer_whoAreYouName">А вас?</a>>
         <q>Алексей</q>
-        <a state="/Response/answer_howAreYou">Приятно познакомиться!</a>
+        <a state="/Response/answer_userName">Приятно познакомиться!</a>
     </test-case>
     
     <test-case id = "ask_howAreYou_good">
@@ -35,7 +34,7 @@
     
     <test-case id = "ask_thanks">
         <q>спасибо</q>
-        <a state="/Response/answer_thanks">Пока пока!</a>
+        <a state="/Response/answer_thanks">Рад был помочь.</a>
     </test-case>
 
     
