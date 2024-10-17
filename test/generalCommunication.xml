@@ -17,14 +17,14 @@
         <q>как дела</q>
         <a state="/Response/answer_howAreYou">Отлично! А у вас?</a>
         <q>хорошо</q>
-        <a state="/Response/answer_howAreYou_good">Это отлично! Как я могу помочь?</a>
+        <a state="/Response/answer_howAreYou_good">Я рад. Теперь давайте поговорим про автомобили.</a>
     </test-case>
     
     <test-case id = "ask_howAreYou_bad">
         <q>как дела</q>
         <a state="/Response/answer_howAreYou">Отлично! А у вас?</a>
         <q>плохо</q>
-        <a state="/Response/answer_howAreYou_bad">Ужас! Могу ли я чем-то помочь?</a>
+        <a state="/Response/answer_howAreYou_bad">Жаль. Возможно, я смогу помочь. Задайте мне любой вопрос про наш автосервис.</a>
     </test-case>    
     
     <test-case id = "ask_bye">
