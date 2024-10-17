@@ -14,7 +14,8 @@ theme: /Request
 
      # Общекоммуникативные мини-сценарии. как тебя зовут / ты кто
     state: ask_whoAreYouName
-        q!: * {$how * $youAcc * $nameVPresPl3} *       
+        q!: * {$how * $youAcc * $nameVPresPl3} * 
+        q!: * {(ты/вы) * $who} *   
         go!: /Response/answer_whoAreYouName
 
 
