@@ -62,32 +62,6 @@ function extractDigits(str) {
     return _.isNull(match) ? null : match[0];
 }
 
-
-/**
- * Записываем статус  в google таблицу
- * @param {String} [sheetsName] - имя таблицы
- * @returns 
- */
-
-function googleAppendStatus(phone, fio, auto) {
-
-    var IntegrationId = configGoogle.IntegrationId;
-    var spreadsheetId = configGoogle.spreadsheetId;
-
-    var body = {
-        "range": googleHistoty + "!A1:C15",
-
-        "values": [[ phone, fio, auto ] ]
-    }
-    $integration.customRequest(
-        IntegrationId,
-        "https://sheets.googleapis.com/v4/spreadsheets/" + spreadsheetId + "/values/" + googleHistoty + "!A1:C15:append" + "?valueInputOption=RAW",
-        "POST",
-        null,
-        body
-    );
-
-}
 /**
  * Извлекает строку с Фамилией, Именем и Отчеством из объекта данных.
  * Ищет фамилию в "pymorphy.surn", имя в "pymorphy.name", отчество в "pymorphy.patr".

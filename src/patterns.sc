@@ -72,14 +72,11 @@ patterns:
     $week = {[$customNumber | $GreaterZero] *недел* }  
     $month = {[$customNumber | $GreaterZero] *месяц* } 
     $year = {[$customNumber | $GreaterZero] (*год*|*лет*) } 
-    $periodToDay = ({[* $day *] [* $month *] [* $week *] [* $year *]}) || converter = convertToDays
     $pastDate = (* @duckling.date *)
     $curentFutureDate = (* @duckling.date *)
     $oneWord = $regexp<\pL{1,}> 
     $name = ({* @mystem.persn * [@mystem.famn]} | ($oneWord $oneWord $oneWord))
     $rejection = { [* @неХочу *] [* @зачем *] [* @неЗнаю *] }
-    $futureTime = {({*след* (* $day *|* $month *|* $week *|* $year *)})} || converter = convertToDays
-    
     $thanks = (спасибо|{большое спасибо}|{Спасибо еще раз}|{Спасибо (вам|тебе)}|{Спасибо (всё получилось|принято|ясно|понятно|понял*|вопрос решен)}|спс|благодарю|благодарствую|благодарим)
     $inTo = {(пройт*/запис*) [на] $TO}
     $fio =  {[@pymorphy.surn] [@pymorphy.name] [@pymorphy.patr]} || converter = getFioString
