@@ -42,7 +42,6 @@ theme: /Request
             go!: /Response/answer_howAreYou_bad
         
 
-    # TODO:   Кажется, это должно быть локальным
     state: ask_bye
         q!: $comBye
         go!: /Response/answer_bye

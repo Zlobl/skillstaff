@@ -3,10 +3,6 @@ theme: /Request
 
 
 
-
-    # TODO: должен быть предусмотрен минимальный препроцессинг запросов пользователя (отсеивание слишком длинных запросов, очистка запроса от мусорных символов, которые теоретически могут помешать работе матчера)
-
-
     # хочу записаться на первое ТО
     # запиши меня на техобслуживание
     # как пройти ТО-1
@@ -32,7 +28,6 @@ theme: /Request
         state: ask_signUpToContext
             q: * $signUpContext *
             script:
-                $reactions.answer(JSON.stringify($parseTree))
                 var phone =  extractDigits($parseTree.text);
                 if (phone)  $client.phone =  validatePhoneNumber(phone) ?  phone: null;
                 // Проверка ФИО 

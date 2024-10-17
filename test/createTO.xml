@@ -7,7 +7,6 @@
         <a state="/Response/answer_signToClarification">- телефон</a>
         <a state="/Response/answer_signToClarification">- марка автомобиля</a>
         <q>Иванов Алексей сергеевич, машина шкода, телефон 88008884455</q>
-        <a state="/Request/ask_signUpTo/ask_signUpToContext"/>
         <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
         <a state="/Response/answer_signUpTo">- Иванов Алексей Сергеевич</a>
         <a state="/Response/answer_signUpTo">- телефон 88008884455</a>
@@ -23,7 +22,6 @@
         <a state="/Response/answer_signToClarification">- телефон</a>
         <a state="/Response/answer_signToClarification">- марка автомобиля</a>
         <q>Екатерина, телефон 88008884455</q>
-        <a state="/Request/ask_signUpTo/ask_signUpToContext"/>
         <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
         <a state="/Response/answer_signUpTo">- Екатерина</a>
         <a state="/Response/answer_signUpTo">- телефон 88008884455</a>
@@ -37,7 +35,6 @@
         <a state="/Response/answer_signToClarification">- телефон</a>
         <a state="/Response/answer_signToClarification">- марка автомобиля</a>
         <q>у меня мазда, связь по номеру 88008884455</q>
-        <a state="/Request/ask_signUpTo/ask_signUpToContext"/>
         <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
         <a state="/Response/answer_signUpTo">- телефон 88008884455</a>
         <a state="/Response/answer_signUpTo">- автомобиль Mazda</a>
@@ -51,12 +48,10 @@
         <a state="/Response/answer_signToClarification">- телефон</a>
         <a state="/Response/answer_signToClarification">- марка автомобиля</a>
         <q>Алексей</q>
-        <a state="/Request/ask_signUpTo/ask_signUpToContext"/>
         <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
         <a state="/Response/answer_signToClarification">- телефон</a>
         <a state="/Response/answer_signToClarification">- марка автомобиля</a>
         <q>машина шкода, телефон 88008884455</q>
-        <a state="/Request/ask_signUpTo/ask_signUpToContext"/>
         <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
         <a state="/Response/answer_signUpTo">- Алексей</a>
         <a state="/Response/answer_signUpTo">- телефон 88008884455</a>
@@ -71,12 +66,10 @@
         <a state="/Response/answer_signToClarification">- телефон</a>
         <a state="/Response/answer_signToClarification">- марка автомобиля</a>
         <q>По этому номеру запишите меня - +78008884455</q>
-        <a state="/Request/ask_signUpTo/ask_signUpToContext"/>
         <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
         <a state="/Response/answer_signToClarification">- ваше ФИО</a>
         <a state="/Response/answer_signToClarification">- марка автомобиля</a>
         <q>машина шкода, Алексей</q>
-        <a state="/Request/ask_signUpTo/ask_signUpToContext"/>
         <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
         <a state="/Response/answer_signUpTo">- Алексей</a>
         <a state="/Response/answer_signUpTo">- телефон 78008884455</a>
@@ -91,12 +84,10 @@
         <a state="/Response/answer_signToClarification">- телефон</a>
         <a state="/Response/answer_signToClarification">- марка автомобиля</a>
         <q>бмв мою проверить бы</q>
-        <a state="/Request/ask_signUpTo/ask_signUpToContext"/>
         <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
         <a state="/Response/answer_signToClarification">- ваше ФИО</a>
         <a state="/Response/answer_signToClarification">- телефон</a>
         <q>78008884455, Алексей</q>
-        <a state="/Request/ask_signUpTo/ask_signUpToContext"/>
         <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
         <a state="/Response/answer_signUpTo">- Алексей</a>
         <a state="/Response/answer_signUpTo">- телефон 78008884455</a>
@@ -111,11 +102,9 @@
         <a state="/Response/answer_signToClarification">- телефон</a>
         <a state="/Response/answer_signToClarification">- марка автомобиля</a>
         <q>Алексей александрович, бмв мою проверить бы</q>
-        <a state="/Request/ask_signUpTo/ask_signUpToContext"/>
         <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
         <a state="/Response/answer_signToClarification">- телефон</a>
         <q>78008884455</q>
-        <a state="/Request/ask_signUpTo/ask_signUpToContext"/>
         <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
         <a state="/Response/answer_signUpTo">- Алексей Александрович</a>
         <a state="/Response/answer_signUpTo">- телефон 78008884455</a>

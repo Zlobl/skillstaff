@@ -27,7 +27,6 @@ theme: /Request
         q!: * {($car/она) * ($buzz/$brokePast)} *
         go!: /Response/answer_technicalProblemTO
         
-        #TODO - не понятно зачем здесь да и нет. Кажется их нужно удалить. 
         state: ask_technicalProblemTOYes
             # да
             q!: $yes
