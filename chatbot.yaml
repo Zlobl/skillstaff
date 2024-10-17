@@ -30,9 +30,15 @@ tests:
     
 
 nlp:
+  modifyRequestInPreMatch: true
   intentNoMatchThresholds:
     phrases: 1
     patterns: 0.2
+
+  lengthLimit:
+    enabled: true
+    symbols: 250
+    words: -1
 
   nbestPatterns: 5
   nbestIntents: 5
