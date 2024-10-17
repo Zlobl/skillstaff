@@ -1,4 +1,134 @@
 <test>  
 
+     <test-case id = "answer_signUpTo клиент указал все данные">
+        <q>Записаться на то</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- ваше ФИО</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <a state="/Response/answer_signToClarification">- марка автомобиля</a>
+        <q>Иванов Алексей сергеевич, машина шкода, телефон 88008884455</q>
+        <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
+        <a state="/Response/answer_signUpTo">- Иванов Алексей Сергеевич</a>
+        <a state="/Response/answer_signUpTo">- телефон 88008884455</a>
+        <a state="/Response/answer_signUpTo">- автомобиль Škoda</a>
+        <a state="/Response/answer_signUpTo">Наш сотрудник свяжется с вами и уточнит время.</a>
+    </test-case>  
 
+
+    <test-case id = "answer_signUpTo клиент указал имя и телефон">
+        <q>Записаться на то</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- ваше ФИО</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <a state="/Response/answer_signToClarification">- марка автомобиля</a>
+        <q>Екатерина, телефон 88008884455</q>
+        <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
+        <a state="/Response/answer_signUpTo">- Екатерина</a>
+        <a state="/Response/answer_signUpTo">- телефон 88008884455</a>
+        <a state="/Response/answer_signUpTo">Наш сотрудник свяжется с вами и уточнит время.</a>
+    </test-case>  
+    
+    <test-case id = "answer_signUpTo клиент указал машину и телефон">
+        <q>Записаться на то</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- ваше ФИО</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <a state="/Response/answer_signToClarification">- марка автомобиля</a>
+        <q>у меня мазда, связь по номеру 88008884455</q>
+        <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
+        <a state="/Response/answer_signUpTo">- телефон 88008884455</a>
+        <a state="/Response/answer_signUpTo">- автомобиль Mazda</a>
+        <a state="/Response/answer_signUpTo">Наш сотрудник свяжется с вами и уточнит время.</a>
+    </test-case>  
+    
+    <test-case id = "answer_signUpTo клиент указал только имя, доспрашиваем данные">
+        <q>Записаться на то</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- ваше ФИО</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <a state="/Response/answer_signToClarification">- марка автомобиля</a>
+        <q>Алексей</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <a state="/Response/answer_signToClarification">- марка автомобиля</a>
+        <q>машина шкода, телефон 88008884455</q>
+        <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
+        <a state="/Response/answer_signUpTo">- Алексей</a>
+        <a state="/Response/answer_signUpTo">- телефон 88008884455</a>
+        <a state="/Response/answer_signUpTo">- автомобиль Škoda</a>
+        <a state="/Response/answer_signUpTo">Наш сотрудник свяжется с вами и уточнит время.</a>
+    </test-case>  
+    
+    <test-case id = "answer_signUpTo клиент указал только телефон, доспрашиваем данные">
+        <q>Записаться на то</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- ваше ФИО</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <a state="/Response/answer_signToClarification">- марка автомобиля</a>
+        <q>По этому номеру запишите меня - +78008884455</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- ваше ФИО</a>
+        <a state="/Response/answer_signToClarification">- марка автомобиля</a>
+        <q>машина шкода, Алексей</q>
+        <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
+        <a state="/Response/answer_signUpTo">- Алексей</a>
+        <a state="/Response/answer_signUpTo">- телефон 78008884455</a>
+        <a state="/Response/answer_signUpTo">- автомобиль Škoda</a>
+        <a state="/Response/answer_signUpTo">Наш сотрудник свяжется с вами и уточнит время.</a>
+    </test-case>  
+    
+    <test-case id = "answer_signUpTo клиент указал только машину, доспрашиваем данные">
+        <q>Записаться на то</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- ваше ФИО</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <a state="/Response/answer_signToClarification">- марка автомобиля</a>
+        <q>бмв мою проверить бы</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- ваше ФИО</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <q>78008884455, Алексей</q>
+        <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
+        <a state="/Response/answer_signUpTo">- Алексей</a>
+        <a state="/Response/answer_signUpTo">- телефон 78008884455</a>
+        <a state="/Response/answer_signUpTo">- автомобиль BMW</a>
+        <a state="/Response/answer_signUpTo">Наш сотрудник свяжется с вами и уточнит время.</a>
+    </test-case>  
+    
+    <test-case id = "answer_signUpTo клиент указал имя и машину, для записи нужен телефон">
+        <q>Записаться на то</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- ваше ФИО</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <a state="/Response/answer_signToClarification">- марка автомобиля</a>
+        <q>Алексей александрович, бмв мою проверить бы</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <q>78008884455</q>
+        <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
+        <a state="/Response/answer_signUpTo">- Алексей Александрович</a>
+        <a state="/Response/answer_signUpTo">- телефон 78008884455</a>
+        <a state="/Response/answer_signUpTo">- автомобиль BMW</a>
+        <a state="/Response/answer_signUpTo">Наш сотрудник свяжется с вами и уточнит время.</a>
+    </test-case>  
+    
+    
+    <test-case id = "ask_whoAreYouName клиент ранее говорил имя, спрашиваем только телефон и марку">
+        <q>как тебя зовут</q>
+        <a state="/Response/answer_whoAreYouName">Меня зовут Вася.</a>
+        <a state="/Response/answer_whoAreYouName">А вас?</a>>
+        <q>Алексей</q>
+        <a state="/Response/answer_userName">Приятно познакомиться!</a>
+        <q>Записаться на то</q>
+        <a state="/Response/answer_signToClarification">Для оформления заявки, уточните следующие данные:</a>
+        <a state="/Response/answer_signToClarification">- телефон</a>
+        <a state="/Response/answer_signToClarification">- марка автомобиля</a>
+        <q>машина шкода, Алексей</q>
+        <a state="/Response/answer_signUpTo">Оформляю заявку на техобслуживание на следующие данные:</a>
+        <a state="/Response/answer_signUpTo">- Алексей</a>
+        <a state="/Response/answer_signUpTo">- телефон 78008884455</a>
+        <a state="/Response/answer_signUpTo">- автомобиль Škodad</a>
+        <a state="/Response/answer_signUpTo">Наш сотрудник свяжется с вами и уточнит время.</a>
+    </test-case>
+    
 </test>

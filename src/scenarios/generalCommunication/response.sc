@@ -25,10 +25,11 @@ theme: /Response
         go: /Request/ask_whoAreYouName
 
     state: answer_userName
-        a: Приятно познакомиться!
-        script: 
-            // TODO: записать данные в Clain
-
+        a: Приятно познакомиться! {{$client.fio}}
+        
 
     state: answer_bye
         a: Пока пока!
+        
+    state: answer_thanks
+        a: Рад был помочь.

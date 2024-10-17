@@ -14,13 +14,15 @@ theme: /Request
 
      # Общекоммуникативные мини-сценарии. как тебя зовут / ты кто
     state: ask_whoAreYouName
-        q!: * {$how * $youAcc * $nameVPresPl3} *
+        q!: * {$how * $youAcc * $nameVPresPl3} *       
         go!: /Response/answer_whoAreYouName
 
 
-         # TODO:   есть сущность от джастов, нужно использвоть её
         state:  ask_userName
             q: $fio
+            script: 
+                if ($parseTree["_fio"] && $parseTree["_fio"]["name"])  $client.fio =  $parseTree["_fio"]["name"];
+
             go!: /Response/answer_userName
 
     
@@ -44,7 +46,9 @@ theme: /Request
         q!: $comBye
         go!: /Response/answer_bye
 
-
+    state: ask_thanks
+        q!: $thanks
+        go!: /Response/answer_thanks
 
     state: NoMatch
         event!: noMatch
