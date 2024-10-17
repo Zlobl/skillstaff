@@ -27,7 +27,7 @@ theme: /Request
 
     
     state:  ask_howAreYou
-        q!: * {$how * (дела/настроение/ты там)} *
+        q!: * {$how * (дела/настроение/ты там/пожев*/пожив*)} *
         go!: /Response/answer_howAreYou
 
 
